@@ -75,6 +75,12 @@ void duplicates(std::string& word)
 	}
 
 	std::cout << "\n" << "Unique Characters" << "\n";
+	for(std::set<char>::const_iterator it = notDuplicated.begin(); it != characters.end(); it++)
+	{
+		std::cout << *it << " ";
+	}
+
+	std::cout << "\n" << "Not Duplicated" << "\n";
 	for(std::set<char>::const_iterator it = characters.begin(); it != characters.end(); it++)
 	{
 		std::cout << *it << " ";
