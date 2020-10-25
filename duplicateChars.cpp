@@ -4,6 +4,7 @@
 #include <set>
 #include <algorithm>
 #include <assert.h>
+#include <vector>
 
 
 void duplicates(std::string& word)
@@ -16,14 +17,12 @@ void duplicates(std::string& word)
 	std::transform(word.begin(), word.end(), word.begin(),
 			[](unsigned char c){return std::tolower(c); });
 
-//	assert(word='1');
-//
 	//make a set for both the characters and the duplicates.
 	//sets cannot have duplicates, so there will only be one of each
 
 	std::set<char> characters;
 	std::set<char> duplicates;
-	std::set<char> notDuplicated;
+	std::vector<char> notDuplicated;
 
 	for(std::string::size_type i = 0; i < word.size(); i++)
 	{
@@ -47,6 +46,15 @@ void duplicates(std::string& word)
 						std::inserter(notDuplicated, notDuplicated.begin()));	
 
 
+	if(characters.size() > duplicates.size())
+	{
+		assert(notDuplicated.size() >= 0);
+	}
+	else
+	{
+		assert(notDuplicated.size() == 0);
+	}
+
 	for(std::string::size_type i = 0; i < word.size(); i++)
 	{
 
@@ -64,10 +72,24 @@ void duplicates(std::string& word)
 	// Need to work out how to do the same thing for characters
 	// that arent in the duplicated set 
 	
+	for(std::string::size_type i = 0; i < word.size(); i++)
+	{
+		for(std::vector<char>::const_iterator it = notDuplicated.begin();
+				it != notDuplicated.end(); it++)
+		{
+			if(*it == word[i])
+			{
+				char once = '(';
+				word[i] = once;
+				assert(word[i] = '(');
+			}
+		}
+	}
+
 	std::cout << "Answer = ?? " << "\n";
 	std::cout << word << "\n";
 
-	//
+
 	std::cout << "Repeated: " << "\n";
 	for(std::set<char>::const_iterator it = duplicates.begin(); it != duplicates.end(); it++)
 	{
@@ -75,17 +97,18 @@ void duplicates(std::string& word)
 	}
 
 	std::cout << "\n" << "Unique Characters" << "\n";
-	for(std::set<char>::const_iterator it = notDuplicated.begin(); it != characters.end(); it++)
-	{
-		std::cout << *it << " ";
-	}
-
-	std::cout << "\n" << "Not Duplicated" << "\n";
 	for(std::set<char>::const_iterator it = characters.begin(); it != characters.end(); it++)
 	{
 		std::cout << *it << " ";
 	}
 
+	std::cout << "\n" << "Non Duplicated: " << "\n";
+	
+	for(int i = 0; i < notDuplicated.size(); i++)
+	{
+		std::cout << notDuplicated[i] << ", ";
+	}
+	//loop through non duplicated array
 }
 
 int main()
