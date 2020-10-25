@@ -17,12 +17,11 @@ std::string lowerIt(std::string& upper)
 	return word;
 }
 
-std::vector<char> leftJoin(std::set<char>& characters, std::set<char>& duplicates)
-{
-
 	//make a set of ones that are not duplicated,
 	//these ones will be replaced by "(" in the final string
 
+std::vector<char> leftJoin(std::set<char>& characters, std::set<char>& duplicates)
+{
 	std::vector<char> notDuplicated;
 
 	std::set_difference(characters.begin(), characters.end(),
