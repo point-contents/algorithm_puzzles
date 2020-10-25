@@ -4,7 +4,7 @@
 #include <set>
 #include <algorithm>
 
-void duplicates(std::string word)
+void duplicates(std::string& word)
 {
 
 	//make lowercase
@@ -35,17 +35,30 @@ void duplicates(std::string word)
 		}
 	}
 
-	std::cout << "Repeated: " << "\n";
 	for(std::set<char>::const_iterator it = duplicates.begin(); it != duplicates.end(); it++)
 	{
-		std::cout << *it << " ";
+		for(std::string::size_type i = 0; i < word.size(); i++)
+		{
+			if(*it == word[i])
+			{
+				std::replace(word.begin(), word.end(), word[i], ")");
+			}	
+		}	
 	}
 
-	std::cout << "\n" << "Unique Characters" << "\n";
-	for(std::set<char>::const_iterator it = characters.begin(); it != characters.end(); it++)
-	{
-		std::cout << *it << " ";
-	}
+
+	//
+//	std::cout << "Repeated: " << "\n";
+//	for(std::set<char>::const_iterator it = duplicates.begin(); it != duplicates.end(); it++)
+//	{
+//		std::cout << *it << " ";
+//	}
+//
+//	std::cout << "\n" << "Unique Characters" << "\n";
+//	for(std::set<char>::const_iterator it = characters.begin(); it != characters.end(); it++)
+//	{
+//		std::cout << *it << " ";
+//	}
 }
 
 int main()
