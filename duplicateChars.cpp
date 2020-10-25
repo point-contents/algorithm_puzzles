@@ -32,10 +32,11 @@ std::vector<char> leftJoin(std::set<char>& characters, std::set<char>& duplicate
 	return notDuplicated;
 }
 
-std::string duplicates(std::string& word)
+std::string duplicate_encoder(const std::string& word)
 {
 
-	word = lowerIt(word);
+	std::string input = word; 
+	input = lowerIt(input);
 
 	//make a set for both the characters and the duplicates.
 	//sets cannot have duplicates, so there will only be one of each
@@ -47,9 +48,9 @@ std::string duplicates(std::string& word)
 	//loop throught the string, do not understand what the 
 	//static cast is doing here exactly.
 	
-	for(std::string::size_type i = 0; i < word.size(); i++)
+	for(std::string::size_type i = 0; i < input.size(); i++)
 	{
-		char c = word[i];
+		char c = input[i];
 
 		if(!std::isspace(static_cast<int>(c)))
 		{
@@ -66,16 +67,16 @@ std::string duplicates(std::string& word)
 
 	notDuplicated = leftJoin(characters, duplicates);
 
-	for(std::string::size_type i = 0; i < word.size(); i++)
+	for(std::string::size_type i = 0; i < input.size(); i++)
 	{
 
 		for(std::set<char>::const_iterator it = duplicates.begin(); it != duplicates.end(); it++)
 		{
-			if(*it == word[i])
+			if(*it == input[i])
 			{
 				char moreThanOnce = ')';
-				word[i] = moreThanOnce ; 
-				assert(word[i]=')');
+				input[i] = moreThanOnce ; 
+				assert(input[i]=')');
 			}
 		}
 	}
@@ -83,20 +84,20 @@ std::string duplicates(std::string& word)
 	// Need to work out how to do the same thing for characters
 	// that arent in the duplicated set 
 	
-	for(std::string::size_type i = 0; i < word.size(); i++)
+	for(std::string::size_type i = 0; i < input.size(); i++)
 	{
 		for(std::vector<char>::const_iterator it = notDuplicated.begin();
 				it != notDuplicated.end(); it++)
 		{
-			if(*it == word[i])
+			if(*it == input[i])
 			{
 				char once = '(';
-				word[i] = once;
-				assert(word[i] = '(');
+				input[i] = once;
+				assert(input[i] = '(');
 			}
 		}
 	}
-	return word;
+	return input;
 }
 
 int main()
@@ -104,7 +105,7 @@ int main()
 	std::string input; 
 	std::cout << "\n" << "Add input, duplicate values will be ')'" << "\n";
 	std::getline(std::cin, input);
-	std::cout << duplicates(input);
+	std::cout << duplicate_encoder(input);
 
 	return 0;
 }
