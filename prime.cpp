@@ -5,11 +5,13 @@ bool isPrime(int num)
 {
 	if(num < 2 || num % 2 == 0)
 	{
+		std::cout << "no ";
 		return false;
 	}
 
 	if(num == 2)
 	{
+		std::cout << "no ";
 		return true;
 	}
 
@@ -18,25 +20,21 @@ bool isPrime(int num)
 	{
 		if(num % i == 0)
 		{
+			std::cout << "no ";
 			return false;
 		}
+	
 	}
+	std::cout << "no ";
 	return true;
 }
 
+
+
 int main()
 {
-	std::cout << "Check for prime" << std::endl;
-	std::cout << "Enter a number" << std::endl;
 	int input;
 	std::cin >> input;
-	if(isPrime(input))
-	{
-		std::cout << "ITS A PRIME ";
-	}
-	else
-	{
-		std::cout << "NAH";
-	}
+	isPrime(input);
 	return 0;
 }
