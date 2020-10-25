@@ -23,6 +23,7 @@ void duplicates(std::string& word)
 
 	std::set<char> characters;
 	std::set<char> duplicates;
+	std::set<char> notDuplicated;
 
 	for(std::string::size_type i = 0; i < word.size(); i++)
 	{
@@ -41,6 +42,11 @@ void duplicates(std::string& word)
 		}
 	}
 
+	std::set_difference(characters.begin(), characters.end(),
+						duplicates.begin(), duplicates.end(),
+						std::inserter(notDuplicated, notDuplicated.begin()));	
+
+
 	for(std::string::size_type i = 0; i < word.size(); i++)
 	{
 
@@ -52,32 +58,12 @@ void duplicates(std::string& word)
 				word[i] = moreThanOnce ; 
 				assert(word[i]=')');
 			}
-			else if(*it != word[i])
-			{
-				char once = '(';
-				word[i] = once;
-				assert(word[i]='(');
-				std::cout << word[i];
-			}
 		}
 	}
 
 	// Need to work out how to do the same thing for characters
 	// that arent in the duplicated set 
 	
-//	for(std::string::size_type i = 0; i < word.size(); i++)
-//	{
-//
-//		for(std::set<char>::const_iterator it = duplicates.begin(); it != duplicates.end(); it++)
-//		{
-//			if(*it == word[i])
-//			{
-//				char moreThanOnce = ')';
-//				word[i] = moreThanOnce ; 
-//				assert(word[i]=')');
-//			}
-//		}
-//	}
 	std::cout << "Answer = ?? " << "\n";
 	std::cout << word << "\n";
 
