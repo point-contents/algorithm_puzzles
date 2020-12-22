@@ -38,7 +38,7 @@ std::string likes(const std::vector<std::string> &names)
 
 	else if(names.size() > 3)
 	{
-		std::string lotsOfPeople = names.front() + ", " + names.at(1) + " and ";
+		std::string lotsOfPeople = names.front() + ", " + names.at() + " and ";
 		int countOfOthers;
 		countOfOthers = names.size() - 2;
 		lotsOfPeople.append(std::to_string(countOfOthers));
