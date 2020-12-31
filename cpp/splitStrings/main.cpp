@@ -8,47 +8,50 @@ std::vector<std::string> solution(const std::string &s)
 	std::vector<std::string> answer; 
 	std::string inputCopy = s; 
 
-	inputCopy.erase(std::remove(inputCopy.begin(), inputCopy.end(), ' '),inputCopy.end());
+// didnt need this apparently
+//inputCopy.erase(std::remove(inputCopy.begin(), inputCopy.end(), ' '),inputCopy.end());
 
 	std::cout << inputCopy << std::endl;
 	std::cout << "Size: " << inputCopy.size() << std::endl;
 	std::cout << "Odd or Even: " << (inputCopy.size() % 2) << std::endl;
 
 	bool oddIndicator;
-	if(inputCopy.size()	% 2 == 0) 
-	{
-		oddIndicator = false;
-	}
-	else
-	{
-		oddIndicator = true;
-	}
+	(inputCopy.size() % 2 == 0) ? oddIndicator = false : oddIndicator = true;
 
-	for(auto it = inputCopy.begin(); it != inputCopy.end(); it++) 
+	for(int i = 0; i < inputCopy.size(); i = i + 2)
 	{
 		{
 		std::string stringPair;
 
-			if(*it == ' ')
 			{
-				continue;
-			}
-			else
-			{
-				stringPair.push_back(*it);
-				stringPair.push_back(*(it + 1));
+				if(i == 0 || i % 2 == 0)
+				{
+					stringPair.push_back(inputCopy.at(i));
+					if(i+1 == inputCopy.size() && oddIndicator)
+					{
+						stringPair.push_back('_');
+					}
+					else if(i+1 < inputCopy.size())
+					{
+						stringPair.push_back(inputCopy.at(i+1));
+					}
+					else
+					{
+						continue;
+					}
+				}
+				else
+				{
+					continue;
+				}
 			}
 
 		answer.push_back(stringPair);
 		}
 	}
+	
 
-	if(oddIndicator)
-	{
-		answer.push_back("_");
-	}
-
-    return answer; // Your code here
+    return answer; 
 }
 
 void testGarbage(std::string inputString)
