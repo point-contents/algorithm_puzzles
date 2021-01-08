@@ -52,7 +52,8 @@ std::string nthRank(const std::string &st, std::vector<int> &we, int n)
 		std::vector<int>::iterator weightIt = we.begin();
 		for(auto& people: names)
 		{
-			int score = calculateNameTotal(people, *weightIt);
+			int weight =  *weightIt;
+			int score = calculateNameTotal(people, weight);
 			totals.push_back(std::pair<std::string,int>(people,score));
 //			std::cout << people << " " << score << std::endl;
 			weightIt++;
@@ -68,19 +69,24 @@ std::string nthRank(const std::string &st, std::vector<int> &we, int n)
 		for(auto& things:totals)
 			std::cout << things.first << " " << things.second << std::endl;
 	
-		return totals[n-1].first;
+		return totals[n].first;
 	}
 }
 
 int main()
 {
-//	    std::string st = "Addison,Jayden,Sofia,Michael,Andrew,Lily,Benjamin";
-//        std::vector<int> we = {4, 2, 1, 4, 3, 1, 2};
-//        std::string sol = "Benjamin";
+	    std::string st = "Addison,Jayden,Sofia,Michael,Andrew,Lily,Benjamin";
+        std::vector<int> we = {4, 2, 1, 4, 3, 1, 2};
+        std::string sol = "Benjamin";
 
-		auto st = "Elijah,Chloe,Elizabeth,Matthew,Natalie,Jayden";
-		std::vector<int> we = {1, 3, 5, 5, 3, 6};
-		std::string sol = "Matthew";
-		std::cout << nthRank(st,we,4) << std::endl;
+		std::cout << nthRank(st,we,4) << "\n\n\n" << std::endl;
+//----------------------------------------------------------------------------//
+		auto st2 = "Elijah,Chloe,Elizabeth,Matthew,Natalie,Jayden";
+		std::vector<int> we2 = {1, 3, 5, 5, 3, 6};
+		std::string sol2 = "Matthew";
+		std::cout << nthRank(st2,we2,2) << std::endl;
+
+//----------------------------------------------------------------------------//
+//
 	return 0;
 }

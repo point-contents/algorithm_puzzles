@@ -1,45 +1,35 @@
 #include <iostream>
 #include <string>
 
-char shiftChar(char c)
-{
-	int n = (int)c;
-	int r = c + 13;
-//	if((n > 65 && n < 74) || (n > 96 && n < 106))
-	//
-	//cases 65 < c < 90 (ie it is lowercase) or 
-	// 96 < c < 122 (uppercase)
-	
-	// end ones 90 == 65 , 122 == 96
-	if(std::isalpha(c))
+char shiftChar(char c, int amt) {
+	int s = c + amt;
+    if (std::isalpha(c)) 
 	{
-		if((n > 64 && n < 78) || (n > 96 && n < 110))
+		if(std::islower(c))
 		{
-			return r;
+			return (((s - 'a') % 26) + 'a');
 		}
 		else
 		{
-			return r - 26;
+			return (((s - 'A') % 26) + 'A');
 		}
 	}
-	else
+	else 
 	{
 		return c;
-	}
-
+    }
 }
 
-std::string rot13(std::string msg)
+std::string rot13(std::string msg) 
 {
-	std::string chiphered;
-	for(auto& chars: msg)
-		chiphered.push_back(shiftChar(chars));
+    std::string chiphered;
+    for (auto& chars : msg) chiphered.push_back(shiftChar(chars,1));
 
-  return chiphered;
+    return chiphered;
 }
 
-int main()
+int main() 
 {
-	std::cout << rot13("abcdefghijklmnopqrstuvwxyz") << std::endl;
-	return 0;
+    std::cout << rot13("Aabcdefghijklmnopqrstuvwxyz") << std::endl;
+    return 0;
 }
