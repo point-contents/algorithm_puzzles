@@ -3,6 +3,7 @@
 #include <vector>
 #include <map>
 #include <algorithm>
+#include <numeric>
 #include <cmath>
 #include <assert.h>
 
@@ -19,14 +20,11 @@ template<typename T> void printVec(T vec)
 
 std::vector<unsigned long long> partsSum(const std::vector<unsigned long long>& ls){
   std::vector<unsigned long long> ans;
-  for(long i = 0; i < ls.size(); i++)
+  ans.reserve(ls.size());
+  for(int i = 0; i < ls.size(); i++)
   {
-    unsigned long long tmp = 0;
-    for(long j = i; j < ls.size(); j++)
-    {
-      tmp += ls[j];
-    }
-    ans.push_back(tmp);
+    auto sum = std::accumulate(ls.begin() + i, ls.end(), 0);
+    ans.push_back(sum);
   }
   return ans;
 }
