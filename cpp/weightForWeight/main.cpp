@@ -89,8 +89,10 @@ std::map<int,int> weightMap(const std::string& strng)
 {
 	std::map<int, int> mappy;
 	std::vector<int> numericTokens = makeNumericTokensFromString(strng);
+	printVec(numericTokens);
 	std::vector<int> sizes = getTokenWeight(numericTokens);
-
+	std::cout << "\n";
+	printVec(sizes);
 	for(int i = 0; i < numericTokens.size(); i++)
 	{
 		mappy[sizes[i]] = numericTokens[i];
@@ -104,13 +106,13 @@ std::vector<int> sortWeights(std::vector<int> numericTokens)
 	return numericTokens;
 }
 
-std::string generateSortedString(std::vector<int> sortedTokens, 
+std::string generateSortedString(std::vector<int> sortedNumericTokens, 
 		std::map<int,int> weightMap)
 {
 	std::string answer;
-	for(int i = 0; i < sortedTokens.size(); i++)
+	for(int i = 0; i < sortedNumericTokens.size(); i++)
 	{
-		auto item = weightMap.find(sortedTokens[i]);
+		auto item = weightMap.find(sortedNumericTokens[i]);
 		answer.push_back(item->second);
 	}
 	return answer;
@@ -127,7 +129,8 @@ std::string WeightSort::orderWeight(const std::string &strng)
 {
 	auto tokenWeightMap = weightMap(strng);
 	auto sortedTokens = sortWeights(makeNumericTokensFromString(strng));
-	auto ans = generateSortedString(sortedTokens, tokenWeightMap);
+	std::string ans = generateSortedString(sortedTokens, tokenWeightMap);
+	std::cout << "This should not be empty" <<  ans;
 	return ans; 
 }
 
