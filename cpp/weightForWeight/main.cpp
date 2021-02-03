@@ -56,19 +56,31 @@ std::vector<int> makeTokenNumeric(std::vector<std::string> tokenCollection)
 	
 }
 
-int addNumbersIndividually(int n)
+std::vector<int> makeNumericTokensFromString(std::string strng)
 {
-	return n;	
+	std::vector<std::string> tokens = tokenizeS(strng);
+	std::vector<int> numericTokens = makeTokenNumeric(tokens);
+	return numericTokens;
 }
 
-std::vector<int> countTokSize(std::vector<std::string>& tokenCollection)
+int addNumbersIndividually(int n)
+{
+	int sum = 0;
+	while(n != 0)
+	{
+		sum = sum + (n % 10);
+		n = n / 10;
+	}
+	return sum;	
+}
+
+std::vector<int> getTokenWeight(std::vector<int>& tokenCollection)
 {
 	std::vector<int> tokenSizes;
 
 	for(int i = 0; i < tokenCollection.size(); i++)
 	{
-		tokenSizes.push_back(std::accumulate(tokenCollection[i].begin(),
-					tokenCollection[i].end(),0));	
+		tokenSizes.push_back(addNumbersIndividually(tokenCollection[i]));	
 	}
 	return tokenSizes;
 }
@@ -76,15 +88,32 @@ std::vector<int> countTokSize(std::vector<std::string>& tokenCollection)
 std::map<int,int> weightMap(const std::string& strng)
 {
 	std::map<int, int> mappy;
-	std::vector<std::string> tokens = tokenizeS(strng);
-	std::vector<int> numericTokens = makeTokenNumeric(tokens);
-	std::vector<int> sizes = countTokSize(tokens);
+	std::vector<int> numericTokens = makeNumericTokensFromString(strng);
+	std::vector<int> sizes = getTokenWeight(numericTokens);
 
-	for(int i = 0; i < tokens.size(); i++)
+	for(int i = 0; i < numericTokens.size(); i++)
 	{
-		mappy[numericTokens[i]] = sizes[i];
+		mappy[sizes[i]] = numericTokens[i];
 	}
 	return mappy;
+}
+
+std::vector<int> sortWeights(std::vector<int> numericTokens)
+{
+	sort(numericTokens.begin(), numericTokens.end());
+	return numericTokens;
+}
+
+std::string generateSortedString(std::vector<int> sortedTokens, 
+		std::map<int,int> weightMap)
+{
+	std::string answer;
+	for(int i = 0; i < sortedTokens.size(); i++)
+	{
+		auto item = weightMap.find(sortedTokens[i]);
+		answer.push_back(item->second);
+	}
+	return answer;
 }
 
 
@@ -97,8 +126,9 @@ public:
 std::string WeightSort::orderWeight(const std::string &strng)
 {
 	auto tokenWeightMap = weightMap(strng);
-	printMap(tokenWeightMap);
-	return "yes"; 
+	auto sortedTokens = sortWeights(makeNumericTokensFromString(strng));
+	auto ans = generateSortedString(sortedTokens, tokenWeightMap);
+	return ans; 
 }
 
 
@@ -106,7 +136,8 @@ int main()
 {
 	WeightSort w;
 	std::string inputS = "310390 39497 166137 131971 25135 344343 56885 342421 261461 383115 55206 136253 480341 258173 130198 237767 247670 143457 34121 340953";
-	w.orderWeight(inputS);
+	std::cout << w.orderWeight(inputS);
+
 
 	return 0;
 }
