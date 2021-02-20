@@ -45,5 +45,6 @@ static int digPow(int n, int p)
 int main()
 {
 	std::cout << digPow(695, 2);
+	std::cout << digPow(695, 2);
 	return 0;
 }

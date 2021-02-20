@@ -21,10 +21,12 @@ template<typename T> void printVec(T vec)
 std::vector<unsigned long long> partsSum(const std::vector<unsigned long long>& ls){
   std::vector<unsigned long long> ans;
   ans.reserve(ls.size());
+  auto sum = std::accumulate(ls.begin(), ls.end(), 0);
+  ans.emplace_back(sum);
   for(int i = 0; i < ls.size(); i++)
   {
-    auto sum = std::accumulate(ls.begin() + i, ls.end(), 0);
-    ans.push_back(sum);
+    sum -= ls[i];
+    ans.emplace_back(sum);
   }
   return ans;
 }

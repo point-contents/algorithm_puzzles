@@ -26,7 +26,7 @@ std::vector<int> bubbleSort(std::vector<int> vec) {
 		continue;
 	    } else if (vec[i] == vec[i + 1]) {
 		continue;
-	    } else {
+	    } else if (vec[i] > vec[i+1]){
 		int placeholder;
 		placeholder = vec[i + 1];
 		vec[i + 1] = vec[i];
@@ -53,7 +53,7 @@ std::vector<int> createVec(int n, int t = 15) {
 }
 
 int main() {
-    std::vector<int> a = createVec(20);
+    std::vector<int> a = {0,3,5,3,2,3,6,6}; 
     LOG("Pre Sorted");
     printVec(a);
 
