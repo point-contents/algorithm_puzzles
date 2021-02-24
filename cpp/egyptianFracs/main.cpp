@@ -19,8 +19,9 @@ template<typename T> void printVec(T vec)
 
 class Decomp
 {
-	double numer, denom;
-	float total;
+  double numer, denom;
+  float total;
+  std::vector<int> denomVec = {};
 public:
   void calcTotal(const std::string &nrStr, const std::string &drStr)
   {
@@ -34,6 +35,7 @@ public:
   std::string decompose(const std::string &nrStr, const std::string &drStr)
   {
 	calcTotal(nrStr, drStr);
+
 
 	return "";
   }
