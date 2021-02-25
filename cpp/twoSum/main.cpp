@@ -24,7 +24,7 @@ std::pair<std::size_t, std::size_t> two_sum(const std::vector<int>& numbers, int
   {
     for(size_t j = 1; j < numbers.size(); j++)  
     {
-      if(numbers[i] + numbers[j] == target)
+      if(numbers[i] + numbers[j] == target && i != j)
       {
         answer.first = i;
         answer.second = j;
