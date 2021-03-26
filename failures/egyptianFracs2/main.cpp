@@ -1,11 +1,11 @@
+#include <algorithm>
+#include <assert.h>
+#include <cmath>
 #include <iostream>
+#include <map>
+#include <numeric>
 #include <string>
 #include <vector>
-#include <map>
-#include <algorithm>
-#include <cmath>
-#include <assert.h>
-#include <numeric>
 
 // Found a python version here
 // but I dont quite understand it yet
@@ -14,29 +14,28 @@
 
 #define LOG(x) std::cout << x << "\n";
 
-template<typename T> void printVec(T vec)
+template <typename T>
+void printVec(T vec)
 {
-	for(auto& things: vec)
-	{
-		std::cout << things << "\n";
-	}
+    for (auto& things : vec) {
+        std::cout << things << "\n";
+    }
 }
 
 void iterate(int a, int b)
 {
-	std::vector<
-	if(a % b == 0) {
-	std::gcd(a, b);
-}
+    std::vector < if (a % b == 0)
+    {
+        std::gcd(a, b);
+    }
 
-class Decomp
-{
-public:
-  static std::string decompose(const std::string &nrStr, const std::string &drStr);
-};
+    class Decomp {
+    public:
+        static std::string decompose(const std::string& nrStr, const std::string& drStr);
+    };
 
-int main(int argc, char* argv[])
-{
+    int main(int argc, char* argv[])
+    {
 
-	return 0;
-}
+        return 0;
+    }
