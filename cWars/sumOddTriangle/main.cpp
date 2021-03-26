@@ -3,28 +3,25 @@
 
 std::vector<int> generateTriangle(int n)
 {
-	std::vector<int> triangle;
+    std::vector<int> triangle;
 
-	for(int i = 0; i < n; i++)
-	{
-		if(i % 2 == 0)
-		{
-			continue;
-		}
-		else
-		{
-			triangle.push_back(i);
-		}
-	}
+    for (int i = 0; i < n; i++) {
+        if (i % 2 == 0) {
+            continue;
+        } else {
+            triangle.push_back(i);
+        }
+    }
 
-	return triangle;
+    return triangle;
 }
 
-long long rowSumOddNumbers(unsigned n){
-	return n;
+long long rowSumOddNumbers(unsigned n)
+{
+    return n;
 }
 int main()
 {
 
-	return 0;
+    return 0;
 }

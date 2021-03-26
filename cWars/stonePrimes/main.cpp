@@ -17,44 +17,40 @@
  *
  */
 
-#include <iostream>
-#include <vector>
 #include <cmath>
+#include <iostream>
 #include <set>
+#include <vector>
 
 void printVector(std::vector<long long> filledVector)
 {
-	for(auto& things: filledVector)
-		std::cout << things << ",";
+    for (auto& things : filledVector)
+        std::cout << things << ",";
 
-	std::cout << filledVector.size() << ",";
+    std::cout << filledVector.size() << ",";
 }
 
 std::vector<long long> generatePrimes(int n, int m, char print = 'n')
 {
-	std::vector<long long> primeTable;
-	std::set<long long> primeSet;
-	for(int i = 0; i < m; i++)
-	{
-		for(int j = 0; j < m; j++)
-		{
-			long long p = ((std::pow(j,2) * std::pow(i,3)) + 1);
-			primeTable.push_back(p);
-			primeSet.insert(p);
-		}
-	}
-	if(print == 'y')
-	{
-		printVector(primeTable);
-	}
-	return primeTable;
-
+    std::vector<long long> primeTable;
+    std::set<long long> primeSet;
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < m; j++) {
+            long long p = ((std::pow(j, 2) * std::pow(i, 3)) + 1);
+            primeTable.push_back(p);
+            primeSet.insert(p);
+        }
+    }
+    if (print == 'y') {
+        printVector(primeTable);
+    }
+    return primeTable;
 }
 
 int main()
 {
-	auto primes = generatePrimes(1,1000);
-	generatePrimes(1,5,'y');
+    auto primes = generatePrimes(1, 1000);
+    generatePrimes(1, 5, 'y');
 
-	return 0;
+    return 0;
 }
