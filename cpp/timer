@@ -1,7 +1,0 @@
-	//make into a function;
-	auto end = std::chrono::high_resolution_clock::now();
-
-	std::chrono::duration<float> procTime = end - start;
-
-	std::cout << "it took:" << procTime.count() << std::endl;
-
