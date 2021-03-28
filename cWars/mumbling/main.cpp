@@ -8,7 +8,7 @@ std::string accum(const std::string& s)
     std::map<char, int> letterLocations;
     std::string answer;
 
-    for (int i = 0; i < s.length(); i++) {
+    for (size_t i = 0; i < s.length(); i++) {
         letterLocations.insert(std::pair<char, int>(s.at(i), i));
     }
 
@@ -26,9 +26,9 @@ std::string accum(const std::string& s)
 std::string accum2(std::string s)
 {
     std::string answer;
-    for (int i = 0; i < s.length(); i++) {
+    for (size_t i = 0; i < s.length(); i++) {
         answer.push_back(std::toupper(s.at(i)));
-        for (int j = 0; j < i; j++) {
+        for (size_t j = 0; j < i; j++) {
             answer.push_back(std::tolower(s.at(i)));
         }
         answer.push_back('-');

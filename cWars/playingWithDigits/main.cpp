@@ -32,7 +32,7 @@ static int digPow(int n, int p)
 {
     auto digits = getDigits(n);
     long long int sum;
-    for (int i = 0; i < digits.size(); i++) {
+    for (size_t i = 0; i < digits.size(); i++) {
         sum += pow(digits[i], p);
         p++;
     }

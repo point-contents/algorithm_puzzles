@@ -21,9 +21,9 @@ std::vector<int> bubbleSort(std::vector<int> vec)
 {
     std::vector<int> outputVec;
     bool swapped = false;
-    for (int j = 0; j < vec.size(); j++) {
+    for (size_t j = 0; j < vec.size(); j++) {
         swapped = false;
-        for (int i = 0; i < vec.size(); i++) {
+        for (size_t i = 0; i < vec.size(); i++) {
             if (vec[i] < vec[i + 1]) {
                 continue;
             } else if (vec[i] == vec[i + 1]) {

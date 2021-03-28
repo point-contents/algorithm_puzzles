@@ -40,7 +40,7 @@ std::string disemvowel(std::string str)
     std::string answer;
     answer.reserve(str.size());
 
-    for (auto i = 0; i < str.size(); i++) {
+    for (size_t i = 0; i < str.size(); i++) {
         if (vMap.find(str[i]) != vMap.end()) {
             continue;
         } else {

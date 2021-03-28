@@ -20,7 +20,7 @@ bool validBraces(std::string braces)
     std::stack<char> braceStack;
     std::map<char, char> pairs = bracePairs();
 
-    for (int i = 0; i < braces.size(); i++) {
+    for (size_t i = 0; i < braces.size(); i++) {
         if (braces[i] == '(' || braces[i] == '[' || braces[i] == '{') {
             braceStack.push(braces[i]);
         } else {
@@ -28,7 +28,9 @@ bool validBraces(std::string braces)
                 return false;
             } else {
                 char top = braceStack.top();
-                if (braces[i] == '}' && top == '{' || braces[i] == ']' && top == '[' || braces[i] == ')' && top == '(') {
+                if ((braces[i] == '}' && top == '{')
+                        || (braces[i] == ']' && top == '[')
+                        || (braces[i] == ')' && top == '(')) {
                     braceStack.pop();
                 } else {
                     return false;

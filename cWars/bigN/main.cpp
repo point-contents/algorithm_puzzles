@@ -4,6 +4,9 @@
 #include <string>
 #include <vector>
 
+
+//add two numbers together, represented as two strings
+//do it with a carry bit? like a register??
 std::string add(const std::string& a, const std::string& b)
 {
     std::cout << a << std::endl;
@@ -21,7 +24,9 @@ std::string add(const std::string& a, const std::string& b)
 
 int main()
 {
-    unsigned long long z = 4819971183491419419976572816851357932799273435568779095371633725810525919938898479161497208389645083812889;
-    //cant figure this out yet
+    auto ans = add("1000","1000");
+    assert(ans == ans);
+
+//    unsigned long long z = 481997118349141;
     return 0;
 }

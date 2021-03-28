@@ -39,7 +39,7 @@ bool XO(const std::string& str)
     for (auto& chars : str)
         lowerCase.push_back(std::tolower(chars));
 
-    for (int i = 0; i < str.size(); i++) {
+    for (size_t i = 0; i < str.size(); i++) {
         if (lowerCase[i] == 'x') {
             freqMap['x']++;
         } else if (lowerCase[i] == 'o') {

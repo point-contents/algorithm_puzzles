@@ -28,11 +28,9 @@ char shiftChar(char c, int amt = 1)
 std::vector<std::string> splitString(std::string inputString)
 {
     std::vector<std::string> outputVector;
-    int len = inputString.size();
 
     int equalSizes = std::floor((inputString.length() / 4));
     int remainder = inputString.size() - equalSizes;
-    int equalChunkTotal = inputString.size() - remainder;
 
     outputVector.push_back(inputString.substr(0, equalSizes));
     outputVector.push_back(inputString.substr((equalSizes), equalSizes));
@@ -50,7 +48,7 @@ std::vector<std::string> movingShift(const std::string& s)
     //need to split the string into 5 different strings;
     std::cout << "Input Length: " << s.length() << std::endl;
 
-    for (int i = 0; i < s.size(); i++) {
+    for (size_t i = 0; i < s.size(); i++) {
         char s_C = shiftChar(s[i], i + 1);
         subAnswer.push_back(s_C);
     }

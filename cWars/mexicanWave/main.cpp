@@ -19,8 +19,7 @@ void printVec(T vec)
 std::vector<std::string> wave(std::string y)
 {
     std::vector<std::string> answer;
-    int counter = 0;
-    for (int i = 0; i < y.size(); i++) {
+    for (size_t i = 0; i < y.size(); i++) {
         if (y[i] == ' ') {
             continue;
         } else {

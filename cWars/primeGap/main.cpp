@@ -31,11 +31,7 @@ bool isPrime(int n)
     return 1;
 }
 
-std::pair<long long, long long> gap(int g, long long m, long long n)
-{
-    for (int i = m; i < n; i++) {
-    }
-}
+//std::pair<long long, long long> gap(int g, long long m, long long n){};
 
 int main()
 {

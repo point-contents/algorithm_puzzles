@@ -30,9 +30,7 @@ std::string autoMorphic(int number)
     std::vector<int> squaredDigits = createDigitArray(nSquared);
     std::vector<int> comparisonVec;
 
-    int i = digitVec.size() - squaredDigits.size();
-
-    for (i; i < digitVec.size(); i++) {
+    for (size_t i; i < digitVec.size(); i++) {
         comparisonVec.push_back(digitVec[i]);
     }
     printArray(digitVec);

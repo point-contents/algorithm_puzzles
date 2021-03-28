@@ -27,7 +27,7 @@ int solve(std::vector<std::string> v)
     int evenCount = 0;
     std::vector<int> vecOfNums;
 
-    for (int i = 0; i < v.size(); i++) {
+    for (size_t i = 0; i < v.size(); i++) {
         if (is_number(v[i])) {
             vecOfNums.push_back(std::stoi(v[i]));
         } else {
@@ -35,7 +35,7 @@ int solve(std::vector<std::string> v)
         }
     }
 
-    for (int j = 0; j < vecOfNums.size(); j++) {
+    for (size_t j = 0; j < vecOfNums.size(); j++) {
         if (vecOfNums[j] % 2 == 0) {
             evenCount++;
         } else {
