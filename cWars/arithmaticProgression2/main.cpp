@@ -6,13 +6,12 @@ static long findMissing(std::vector<long> list)
     long answer;
     long previousDifference = 0;
 
-
     for (size_t i = 0; i < list.size() - 1; i++) {
         long currentDifference = list[i + 1] - list[i];
         if (previousDifference != 0 && currentDifference != previousDifference) {
             answer = list[i] + previousDifference;
         } else {
-            if ((size_t) list[i + 1] > list.size()) {
+            if ((size_t)list[i + 1] > list.size()) {
                 continue;
             } else {
                 previousDifference = list[i + 1] - list[i];

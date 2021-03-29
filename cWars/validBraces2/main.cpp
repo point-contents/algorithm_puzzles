@@ -29,8 +29,8 @@ bool validBraces(std::string braces)
             } else {
                 char top = braceStack.top();
                 if ((braces[i] == '}' && top == '{')
-                        || (braces[i] == ']' && top == '[')
-                        || (braces[i] == ')' && top == '(')) {
+                    || (braces[i] == ']' && top == '[')
+                    || (braces[i] == ')' && top == '(')) {
                     braceStack.pop();
                 } else {
                     return false;
