@@ -1,3 +1,5 @@
+#! /bin/bash
+
 if [ $# -eq 0  ]; then 
 	clang-format -style=Webkit -dump-config  > .clang-format
 	find . -iname "*.cpp" | xargs clang-format -i 
