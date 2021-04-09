@@ -18,7 +18,7 @@ std::vector<std::string> solution(const std::string& s)
     bool oddIndicator;
     (inputCopy.size() % 2 == 0) ? oddIndicator = false : oddIndicator = true;
 
-    for (int i = 0; i < inputCopy.size(); i = i + 2) {
+    for (size_t i = 0; i < inputCopy.size(); i = i + 2) {
         {
             std::string stringPair;
 

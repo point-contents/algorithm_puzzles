@@ -31,7 +31,7 @@ public:
 std::string SequenceSum::showSequence()
 {
     std::string answer;
-    for (int i = 0; i < sequence.size(); i++) {
+    for (size_t i = 0; i < sequence.size(); i++) {
         answer.push_back(sequence[i]);
         if (i + 1 == sequence.size()) {
             break;

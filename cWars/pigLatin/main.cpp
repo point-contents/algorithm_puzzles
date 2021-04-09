@@ -39,7 +39,7 @@ std::string swapFirstLetter(std::string s)
     answer.reserve(s.size());
 
     if (std::isalnum(s[0])) {
-        for (int i = 1; i < s.size(); i++) {
+        for (size_t i = 1; i < s.size(); i++) {
             answer.push_back(s[i]);
         }
         answer.push_back(s[0]);

@@ -29,8 +29,8 @@ std::pair<long, int> findOddSpace(std::vector<long> elementDifferences)
     seqDetails found;
 
     std::map<long, int> occurancesMap;
-    int uniqueSpace;
-    long commonIterator;
+    //    int uniqueSpace;
+    //    long commonIterator;
     std::pair<long, int> answerPair;
 
     for (auto& steps : elementDifferences) {

@@ -27,10 +27,10 @@ std::string encrypt(std::string text, int n)
         for (int i = 0; i < n; i++) {
             std::string secondLetters;
             std::string firstLetters;
-            for (int i = 1; i < subAnswer.size(); i += 2) {
+            for (size_t i = 1; i < subAnswer.size(); i += 2) {
                 secondLetters.push_back(subAnswer[i]);
             }
-            for (int j = 0; j < text.size(); j += 2) {
+            for (size_t j = 0; j < text.size(); j += 2) {
                 firstLetters.push_back(subAnswer[j]);
             }
             subAnswer = secondLetters + firstLetters;
@@ -60,7 +60,7 @@ std::string recurseDecryp(std::string s)
         std::string answer;
         std::string processedString;
 
-        for (int i = 0; i < splitString[1].size(); i++) {
+        for (size_t i = 0; i < splitString[1].size(); i++) {
             processedString.push_back(splitString[1][i]);
             processedString.push_back(splitString[0][i]);
             answer = processedString;
@@ -75,7 +75,7 @@ std::string decryptOnce(std::string encryptedText)
     std::string processedString;
     std::vector<std::string> splitString = splitIntoTwo(subAnswer);
 
-    for (int i = 0; i < splitString[1].size(); i++) {
+    for (size_t i = 0; i < splitString[1].size(); i++) {
         processedString.push_back(splitString[1][i]);
         processedString.push_back(splitString[0][i]);
         subAnswer = processedString;

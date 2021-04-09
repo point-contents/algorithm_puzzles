@@ -67,7 +67,7 @@ std::string duplicate_encoder(const std::string& word)
             if (*it == input[i]) {
                 char moreThanOnce = ')';
                 input[i] = moreThanOnce;
-                assert(input[i] = ')');
+                assert(input[i] == ')');
             }
         }
     }
@@ -81,7 +81,7 @@ std::string duplicate_encoder(const std::string& word)
             if (*it == input[i]) {
                 char once = '(';
                 input[i] = once;
-                assert(input[i] = '(');
+                assert(input[i] == '(');
             }
         }
     }

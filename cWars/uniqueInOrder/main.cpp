@@ -20,7 +20,7 @@ void printVec(T vec)
 std::vector<char> uniqueInOrder(const std::string& iterable)
 {
     std::vector<char> answer;
-    for (int i = 0; i < iterable.size(); i++) {
+    for (size_t i = 0; i < iterable.size(); i++) {
         if (iterable[i] == iterable[i + 1]) {
             continue;
         } else {

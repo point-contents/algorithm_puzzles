@@ -1,7 +1,7 @@
-# codewars
+## puzzles from coding challenge websites 
 
 to build, from the home directory
-mkdir build ; cmake .. ; make 
+mkdir build ; cd build ; cmake .. ; make 
 
 or with the bash script "makeme.sh", 
 

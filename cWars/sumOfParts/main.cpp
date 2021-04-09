@@ -23,7 +23,7 @@ std::vector<unsigned long long> partsSum(const std::vector<unsigned long long>& 
     ans.reserve(ls.size());
     auto sum = std::accumulate(ls.begin(), ls.end(), 0);
     ans.emplace_back(sum);
-    for (int i = 0; i < ls.size(); i++) {
+    for (size_t i = 0; i < ls.size(); i++) {
         sum -= ls[i];
         ans.emplace_back(sum);
     }
