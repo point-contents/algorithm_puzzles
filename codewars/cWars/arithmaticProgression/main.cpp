@@ -31,7 +31,7 @@ std::pair<long, int> findOddSpace(std::vector<long> elementDifferences)
     std::map<long, int> occurancesMap;
     //    int uniqueSpace;
     //    long commonIterator;
-    std::pair<long, int> answerPair;
+    std::pair<long, int> answerPair = {0, 0};
 
     for (auto& steps : elementDifferences) {
         int occuranceCount = std::count(elementDifferences.begin(),
